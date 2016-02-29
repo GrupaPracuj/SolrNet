@@ -143,7 +143,7 @@ namespace Castle.Facilities.SolrNetIntegration {
         /// <param name="core"></param>
         private void RegisterCore(SolrCore core) {
             var coreConnectionId = core.Id + typeof (SolrConnection);
-            Kernel.Register(Component.For<ISolrConnection>().ImplementedBy<SolrConnection>()
+            Kernel.Register(Component.For<ISolrConnection>().ImplementedBy<PostSolrConnection>()
                                 .Named(coreConnectionId)
                                 .Parameters(Parameter.ForKey("serverURL").Eq(core.Url)));
 
